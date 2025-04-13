@@ -1,0 +1,27 @@
+<div class="tracks-list">
+  <mat-card class="track-card" *ngFor="let track of tracks">
+    <mat-card-header>
+      <mat-card-title>{{ track.name }}</mat-card-title>
+      <mat-card-subtitle>{{ track.location }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>Hossz:</strong> {{ track.length }} km</p>
+
+      <!-- Direktívával vagy sima progress barral -->
+      <div
+        appTrackLength
+        [trackLength]="track.length"
+        [maxLength]="7"
+        class="track-length-bar"
+      ></div>
+
+      <p>
+        <strong>Elrendezés:</strong>
+        <span>{{ track.layout }}</span>
+      </p>
+      <p><strong>Alapítás éve:</strong> {{ track.established }}</p>
+      <p><strong>Ország:</strong> {{ track.country }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

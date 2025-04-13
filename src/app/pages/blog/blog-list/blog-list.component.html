@@ -1,0 +1,13 @@
+<div class="news-list">
+  <h2 class="news-title">Hírek</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let post of blogPosts" class="news-item">
+      <mat-card class="news-card">
+        <a [routerLink]="['/blog', post.id]" class="news-link">
+          {{ post.title }}
+        </a>
+      </mat-card>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>

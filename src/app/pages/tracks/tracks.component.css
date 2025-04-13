@@ -1,0 +1,150 @@
+.tracks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.track-card {
+  border-radius: 12px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex !important;
+  flex-direction: column;
+  min-height: 400px;
+  background: linear-gradient(145deg, #1c1c1e 0%, #2e2e32 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  color: #f1f1f1;
+}
+
+/* Fejléc */
+mat-card-header {
+  padding: 1.5rem 1.5rem 0;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+/* Címek */
+mat-card-title {
+  font-size: 1.5rem !important;
+  color: #e10600 !important; /* F1 piros */
+  line-height: 1.3;
+  margin-bottom: 0.5rem !important;
+  font-family: 'Formula1 Display', 'Roboto Condensed', sans-serif;
+}
+
+mat-card-subtitle {
+  font-size: 1rem !important;
+  color: #bbb !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Tartalom */
+mat-card-content {
+  padding: 0 1.5rem 1.5rem !important;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+mat-card-content p {
+  margin: 0;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+mat-card-content strong {
+  display: block;
+  color: #ffe600; /* Sárga kiemelés */
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Progress bar */
+.track-length-bar {
+  grid-column: span 2;
+  height: 12px;
+  background: #333;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.track-length-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #e10600 0%, #ffe600 100%);
+  width: calc((var(--track-length, 0)/7 * 100%));
+  transition: width 0.8s ease-in-out;
+}
+
+/* Hover */
+.track-card:hover {
+  transform: scale(1.02) rotate(0.5deg);
+  box-shadow: 0 12px 24px rgba(225, 6, 0, 0.3) !important;
+}
+
+.track-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    35deg,
+    rgba(225, 6, 0, 0.05) 0%,
+    rgba(255, 230, 0, 0.04) 100%
+  );
+}
+
+/* Reszponzív */
+@media (max-width: 768px) {
+  .tracks-list {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .track-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  mat-card-content {
+    grid-template-columns: 1fr;
+  }
+
+  mat-card-content p {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-card-header {
+    padding: 1rem 1rem 0;
+  }
+
+  mat-card-title {
+    font-size: 1.3rem !important;
+  }
+
+  .track-length-bar {
+    height: 10px;
+  }
+}

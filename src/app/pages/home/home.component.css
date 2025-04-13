@@ -1,0 +1,57 @@
+.container {
+  padding: 20px;
+  min-height: 1200px;
+}
+
+.hero {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/F1.svg/2560px-F1.svg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  position: relative;
+  color: white;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #f1f1f1;
+  margin-top: 10px;
+}
+
+.intro {
+  margin-top: 30px;
+}
+
+.intro-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+mat-card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}

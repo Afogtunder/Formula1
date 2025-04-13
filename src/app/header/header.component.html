@@ -1,0 +1,34 @@
+<header>
+  <mat-nav-list>
+    <a mat-list-item routerLink="/home" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Kezdőlap</span>
+    </a>
+    <a mat-list-item routerLink="/tracks" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Pályák</span>
+    </a>
+    <a mat-list-item routerLink="/drivers" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Pilóták</span>
+    </a>
+    <a mat-list-item routerLink="/teams" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Csapatok</span>
+    </a>
+    <a mat-list-item routerLink="/blogs" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Blogok</span>
+    </a>
+
+    <!-- Regisztrációs link csak be nem jelentkezett felhasználóknak -->
+    <a *ngIf="!isLoggedIn" mat-list-item routerLink="/register" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Regisztráció</span>
+    </a>
+
+    <!-- Bejelentkezési link csak be nem jelentkezett felhasználóknak -->
+    <a *ngIf="!isLoggedIn" mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
+      <span matListItemTitle>Bejelentkezés</span>
+    </a>
+
+    <!-- Kijelentkezési link csak bejelentkezett felhasználóknak -->
+    <a *ngIf="isLoggedIn" mat-list-item (click)="logout()">
+      <span matListItemTitle>Kilépés</span>
+    </a>
+  </mat-nav-list>
+</header>

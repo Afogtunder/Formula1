@@ -1,0 +1,9 @@
+<mat-card class="comment-card">
+    <mat-card-content>
+      <p><strong>{{ comment.writer }}:</strong> {{ comment.content }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="warn" (click)="delete.emit()">Törlés</button>
+    </mat-card-actions>
+  </mat-card>
+  

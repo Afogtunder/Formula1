@@ -1,0 +1,72 @@
+<mat-list>
+  <mat-list-item *ngFor="let driver of drivers">
+    <mat-card class="driver-card">
+      
+      <!-- Kép -->
+      <div class="image-wrapper" [class.loading]="!driver.picture">
+        <img *ngIf="driver.picture" [src]="driver.picture" alt="{{ driver.name }}">
+      </div>
+
+      <mat-card-header>
+        <mat-card-title>
+          <strong>{{ driver.name }}</strong>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <mat-icon>location_on</mat-icon> {{ driver.country }} - 
+          <mat-icon>group</mat-icon> {{ driver.team }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <!-- Személyes adatok -->
+        <div class="personal-info">
+          <p><strong>Született:</strong> {{ driver.birthDate | birthdateFormat }}</p>
+          <p><strong>Karrier kezdete:</strong> {{ driver.careerStart }}</p>
+        </div>
+
+        <!-- Statisztikai blokk -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <mat-icon>military_tech</mat-icon>
+            <div class="stat-text">
+              <span class="value">{{ driver.championships }}</span>
+              <span class="label">VB-cím</span>
+            </div>
+          </div>
+          
+          <div class="stat-item">
+            <mat-icon>flag</mat-icon>
+            <div class="stat-text">
+              <span class="value">{{ driver.raceWins }}</span>
+              <span class="label">Győzelem</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <mat-icon>podium</mat-icon>
+            <div class="stat-text">
+              <span class="value">{{ driver.podiums }}</span>
+              <span class="label">Dobogó</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <mat-icon>speed</mat-icon>
+            <div class="stat-text">
+              <span class="value">{{ driver.points | number }}</span>
+              <span class="label">Pont</span>
+            </div>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <!-- Biográfia rész -->
+        <div class="bio-section">
+          <h4>Karriertörténet</h4>
+          <p>{{ driver.biography }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-list-item>
+</mat-list>

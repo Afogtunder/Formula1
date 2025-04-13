@@ -1,0 +1,24 @@
+<div class="team-container" *ngFor="let team of teams" [appHoverColor]="team">
+  <mat-card class="team-card" [style.borderLeft]="'8px solid ' + team.hoverColor">
+    
+    <!-- Kép a kártya tetején -->
+    <img mat-card-image [src]="team.picture" [alt]="team.name + ' logo'" />
+
+    <mat-card-header>
+      <mat-card-title>{{ team.name }}</mat-card-title>
+      <mat-card-subtitle>{{ team.country }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="card-content">
+      <div class="left-side">
+        <p><strong>Alapítva:</strong> {{ team.founded }}</p>
+        <p><strong>Csapatvezető:</strong> {{ team.teamPrincipal }}</p>
+        <p><strong>Székhely:</strong> {{ team.headquarters }}</p>
+      </div>
+      <div class="right-side">
+        <p><strong>Leírás:</strong></p>
+        <p>{{ team.description }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
