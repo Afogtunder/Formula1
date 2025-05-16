@@ -26,7 +26,7 @@
 
         <!-- Statisztikai blokk -->
         <div class="stats-grid">
-          <div class="stat-item">
+          <div class="stat-item" [appChampionship]="driver.championships">
             <mat-icon>military_tech</mat-icon>
             <div class="stat-text">
               <span class="value">{{ driver.championships }}</span>
@@ -34,7 +34,7 @@
             </div>
           </div>
           
-          <div class="stat-item">
+          <div class="stat-item" [appHighlight]="driver.raceWins">
             <mat-icon>flag</mat-icon>
             <div class="stat-text">
               <span class="value">{{ driver.raceWins }}</span>

@@ -4,6 +4,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenav } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -14,17 +16,11 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() sidenav!: MatSidenav;
   @Output() logoutEvent = new EventEmitter<void>();
-
+  private authSubscription?: Subscription;
   isLoggedIn: boolean = false;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     console.log("constructor called");
-  }
-
-  ngOnInit(): void {
-    console.log("ngOnInit called");
-    // Ellenőrzi, hogy be van-e jelentkezve
-    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   }
 
   ngAfterViewInit(): void {
@@ -37,9 +33,24 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  logout() {
-    localStorage.setItem('isLoggedIn', 'false');
-    window.location.href = '/home';
-    this.closeMenu();
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  ngOnInit(): void {
+    this.authSubscription = this.authService.isLoggedIn$.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+    });
+  }
+  
+  logout(): void {
+    this.authService.signOut();
+  }
+
+  ngOnDestroy(): void {
+    // Leiratkozás a subscription-ről
+    this.authSubscription?.unsubscribe();
   }
 }

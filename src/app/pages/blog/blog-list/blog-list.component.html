@@ -1,5 +1,29 @@
 <div class="news-list">
   <h2 class="news-title">Hírek</h2>
+  
+  <!-- Form a új blog hozzáadásához -->
+  <mat-card class="add-blog-card">
+    <mat-card-title>Új blog hozzáadása</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Cím</mat-label>
+        <input matInput #newTitle />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tartalom</mat-label>
+        <textarea matInput rows="4" #newContent></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="addBlog(newTitle.value, newContent.value)">
+        Hozzáadás
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- Blog lista -->
   <mat-list>
     <mat-list-item *ngFor="let post of blogPosts" class="news-item">
       <mat-card class="news-card">

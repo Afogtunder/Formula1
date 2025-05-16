@@ -1,5 +1,9 @@
 <header>
-  <mat-nav-list>
+  <!-- Hamburger gomb mobil nézetre -->
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <!-- Navigációs lista -->
+  <mat-nav-list [class.open]="menuOpen">
     <a mat-list-item routerLink="/home" routerLinkActive="active-list-item" (click)="closeMenu()">
       <span matListItemTitle>Kezdőlap</span>
     </a>
@@ -16,18 +20,16 @@
       <span matListItemTitle>Blogok</span>
     </a>
 
-    <!-- Regisztrációs link csak be nem jelentkezett felhasználóknak -->
+    <!-- Csak ha nincs bejelentkezve -->
     <a *ngIf="!isLoggedIn" mat-list-item routerLink="/register" routerLinkActive="active-list-item" (click)="closeMenu()">
       <span matListItemTitle>Regisztráció</span>
     </a>
-
-    <!-- Bejelentkezési link csak be nem jelentkezett felhasználóknak -->
     <a *ngIf="!isLoggedIn" mat-list-item routerLink="/login" routerLinkActive="active-list-item" (click)="closeMenu()">
       <span matListItemTitle>Bejelentkezés</span>
     </a>
 
-    <!-- Kijelentkezési link csak bejelentkezett felhasználóknak -->
-    <a *ngIf="isLoggedIn" mat-list-item (click)="logout()">
+    <!-- Csak ha be van jelentkezve -->
+    <a *ngIf="isLoggedIn" mat-list-item (click)="logout(); closeMenu()">
       <span matListItemTitle>Kilépés</span>
     </a>
   </mat-nav-list>

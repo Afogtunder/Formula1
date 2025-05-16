@@ -1,14 +1,5 @@
-import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { DriversComponent } from './pages/drivers/drivers.component';
-import { TeamsComponent } from './pages/teams/teams.component';
-import { TracksComponent } from './pages/tracks/tracks.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { BlogListComponent } from './pages/blog/blog-list/blog-list.component';
-import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
-
+import { authGuard, publicGuard } from '../app/guards/auth/auth.guard';
 
 
 
@@ -35,11 +26,13 @@ export const routes: Routes = [
     },
     {
         path: 'blogs',
-        loadComponent: () => import('./pages/blog/blog-list/blog-list.component').then(m => m.BlogListComponent)
+        loadComponent: () => import('./pages/blog/blog-list/blog-list.component').then(m => m.BlogListComponent),
+        canActivate: [authGuard]
     },
     {
         path: 'blog/:id',
-        loadComponent: () => import('./pages/blog/blog-detail/blog-detail.component').then(m => m.BlogDetailComponent)
+        loadComponent: () => import('./pages/blog/blog-detail/blog-detail.component').then(m => m.BlogDetailComponent),
+        canActivate: [authGuard]
     },
     
 

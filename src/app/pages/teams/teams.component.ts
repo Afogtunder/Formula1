@@ -33,7 +33,7 @@ export class TeamsComponent {
       teamPrincipal: 'Toto Wolff',
       headquarters: 'Brackley, United Kingdom',
       hoverColor: 'grey',
-      description: 'Mercedes is a prominent Formula 1 team...',
+      description: 'A Mercedes egy kiemelkedő Forma-1-es csapat, amely számos világbajnoki címet nyert az évek során, és az egyik legerősebb csapat a sportág történetében.',
       picture: 'images/mercedes.png'
     },
     {
@@ -44,7 +44,7 @@ export class TeamsComponent {
       teamPrincipal: 'Christian Horner',
       headquarters: 'Milton Keynes, United Kingdom',
       hoverColor: 'blue',
-      description: 'Red Bull Racing quickly became one of the most successful teams...',
+      description: 'A Red Bull Racing gyorsan az egyik legsikeresebb csapattá vált, és az egyik legdinamikusabb csapat az F1-es versenyeken.',
       picture: 'images/redbull.jpg'
     },
     {
@@ -55,7 +55,7 @@ export class TeamsComponent {
       teamPrincipal: 'Mattia Binotto',
       headquarters: 'Maranello, Italy',
       hoverColor: 'red',
-      description: 'Ferrari is one of the most iconic teams in F1 history...',
+      description: 'A Ferrari az egyik legismertebb és legikonikusabb csapat a Forma-1 történetében, sok világbajnoki címet szerzett és hűséges rajongótáborral rendelkezik.',
       picture: 'images/ferrari.png'
     },
     {
@@ -66,7 +66,7 @@ export class TeamsComponent {
       teamPrincipal: 'Andrea Stella',
       headquarters: 'Woking, United Kingdom',
       hoverColor: 'orange',
-      description: 'McLaren is a legendary F1 team with a long legacy, known for their innovation and past champions like Ayrton Senna and Lewis Hamilton.',
+      description: 'A McLaren egy legendás Forma-1-es csapat, amely hosszú múltra tekint vissza, és olyan bajnokokat nevelt, mint Ayrton Senna és Lewis Hamilton.',
       picture: 'images/mclaren.jpg'
     },
     {
@@ -77,7 +77,7 @@ export class TeamsComponent {
       teamPrincipal: 'Mike Krack',
       headquarters: 'Silverstone, United Kingdom',
       hoverColor: 'green',
-      description: 'Aston Martin returned to F1 with a strong brand presence, aiming to build a competitive legacy.',
+      description: 'Az Aston Martin 2021-ben tért vissza a Forma-1-be, és erőteljes márkájával próbál tartós versenyképességet építeni a sportágban.',
       picture: 'images/aston.jpg'
     },
     {
@@ -88,7 +88,7 @@ export class TeamsComponent {
       teamPrincipal: 'Bruno Famin',
       headquarters: 'Enstone, United Kingdom',
       hoverColor: 'lightblue',
-      description: 'Alpine is Renault’s rebranded F1 effort, combining French engineering and motorsport heritage.',
+      description: 'Az Alpine a Renault Forma-1-es ágazata, amely a francia mérnöki tudást és motorsport örökséget ötvözi.',
       picture: 'images/alpine.png'
     },
     {
@@ -99,7 +99,7 @@ export class TeamsComponent {
       teamPrincipal: 'Alessandro Alunni Bravi',
       headquarters: 'Hinwil, Switzerland',
       hoverColor: 'limegreen',
-      description: 'Kick Sauber, formerly Alfa Romeo, is a Swiss-based team with a long-standing presence in F1. Now preparing for its future as the Audi works team.',
+      description: 'A Kick Sauber, korábban Alfa Romeo, egy svájci székhelyű csapat, amely hosszú távú jelenléttel bír a Forma-1-ben, és most készül a jövőre, mint az Audi hivatalos csapata.',
       picture: 'images/kick.png'
     },
     {
@@ -110,7 +110,7 @@ export class TeamsComponent {
       teamPrincipal: 'James Vowles',
       headquarters: 'Grove, United Kingdom',
       hoverColor: 'royalblue',
-      description: 'Williams Racing is one of the most successful teams in F1 history, known for its engineering excellence and championship legacy in the 80s and 90s.',
+      description: 'A Williams Racing a Forma-1 egyik legsikeresebb csapata, amely az 1980-as és 1990-es években mérnöki kiválóságáról és bajnoki örökségéről volt híres.',
       picture: 'images/williams.jpg'
     },
     {
@@ -121,7 +121,7 @@ export class TeamsComponent {
       teamPrincipal: 'Laurent Mekies',
       headquarters: 'Faenza, Italy',
       hoverColor: 'purple',
-      description: 'Previously known as AlphaTauri, Visa Cash App RB serves as Red Bull’s sister team, focusing on developing young talent.',
+      description: 'A Visa Cash App RB, korábban AlphaTauri, a Red Bull testvércsapata, amely a fiatal tehetségek fejlesztésére összpontosít.',
       picture: 'images/visa.jpg'
     },
     {
@@ -132,7 +132,7 @@ export class TeamsComponent {
       teamPrincipal: 'Ayao Komatsu',
       headquarters: 'Kannapolis, United States',
       hoverColor: 'black',
-      description: 'Haas is the only American team in Formula 1, known for its close technical partnership with Ferrari and lean operational model.',
+      description: 'A Haas az egyetlen amerikai csapat a Forma-1-ben, amely közvetlen technikai partnerséget ápol a Ferrarival, és karcsú operációs modellel dolgozik.',
       picture: 'images/haas.png'
     }
   ];

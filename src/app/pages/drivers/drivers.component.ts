@@ -6,6 +6,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { HighlightDirective } from '../../directives/highlight/highlight.directive';
+import { ChampionshipDirective } from '../../directives/championship/championship.directive';
 
 export interface Driver {
   id: number;
@@ -31,7 +33,9 @@ export interface Driver {
     MatDividerModule,
     MatIconModule,
     BirthdateFormatPipe,
-    MatExpansionModule
+    MatExpansionModule,
+    HighlightDirective,
+    ChampionshipDirective
   ],
   templateUrl: './drivers.component.html',
   styleUrl: './drivers.component.css'

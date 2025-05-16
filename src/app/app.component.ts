@@ -1,48 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { DriversComponent } from './pages/drivers/drivers.component';
-import { TeamsComponent } from './pages/teams/teams.component';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { TracksComponent } from './pages/tracks/tracks.component';
-import { TrackLengthDirective } from './directives/track-lengths/track-lengths.directive';
-import { HoverColorDirective } from './directives/hover-teams/hover-color.directive';
-import { BirthdateFormatPipe } from './pipes/birthdate-format.pipe';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AuthService } from '../app/services/auth.service';  // Az AuthService importálása
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent,FooterComponent,CommonModule,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule,
     MatCardModule, MatListModule, MatDividerModule, MatIconModule
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']  // Itt javítottam az "styleUrl" helyett "styleUrls"-ra
 })
 export class AppComponent {
   title = 'f1';
-  isLoggedIn = false;
-  page="home"
+  page = "home";
+  isLoggedIn: boolean = false;
 
-  changePage(selectedPage: string){
+  constructor(private authService: AuthService, private ngZone: NgZone) {}
+
+  changePage(selectedPage: string): void {
     this.page = selectedPage;
   }
 
   ngOnInit(): void {
-    this.checkLoginStatus();
-  }
-  checkLoginStatus(): void {
-    this.isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    this.authService.isLoggedIn$.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+    });
   }
 
   logout(): void {
-    localStorage.setItem('isLoggedIn', 'false');
-    this.isLoggedIn = false;
-    window.location.href = '/home';
+    this.authService.signOut();  // A kijelentkezés a szolgáltatásban történik
+    this.ngZone.run(() => {
+      window.location.href = '/home';  // Navigálás a megfelelő oldalra
+    });
   }
 }

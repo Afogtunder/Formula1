@@ -51,3 +51,70 @@
   background-color: #333;
   margin-top: 10px;
 }
+/* Add Blog Card */
+.add-blog-card {
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+  border-left: 4px solid #e10600;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(225, 6, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.add-blog-card mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e10600;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e10600;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-form-field .mat-label {
+  font-size: 1rem;
+  color: #f5f5f5;
+}
+
+input, textarea {
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #f5f5f5;
+  width: 100%;
+}
+
+input:focus, textarea:focus {
+  border-color: #e10600;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Gomb stílus */
+mat-card-actions {
+  text-align: center;
+}
+
+button {
+  font-size: 1rem;
+  padding: 12px 20px;
+  background-color: #e10600;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #bf0500; /* Sötétebb piros szín a hover hatásra */
+}

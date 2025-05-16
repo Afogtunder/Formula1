@@ -1,3 +1,12 @@
+<div class="filter-buttons" style="margin-bottom: 16px;">
+  <button mat-raised-button color="primary" (click)="filterByLength()">Szűrés hossz alapján (>= 5 km)</button>
+  <button mat-raised-button color="accent" (click)="filterByEstablished()">Szűrés év alapján (>= 2000)</button>
+  <button mat-raised-button color="primary" (click)="filterByLengthAscending()">Pályák növekvő hosszúság szerint</button>
+  <button mat-raised-button color="accent" (click)="filterFirstFiveEstablished()">Első 5 alapított pálya</button>
+  <button mat-raised-button color="warn" (click)="loadAllTracks()">Összes pálya</button>
+</div>
+
+
 <div class="tracks-list">
   <mat-card class="track-card" *ngFor="let track of tracks">
     <mat-card-header>
@@ -7,19 +16,13 @@
 
     <mat-card-content>
       <p><strong>Hossz:</strong> {{ track.length }} km</p>
-
-      <!-- Direktívával vagy sima progress barral -->
       <div
         appTrackLength
         [trackLength]="track.length"
         [maxLength]="7"
         class="track-length-bar"
       ></div>
-
-      <p>
-        <strong>Elrendezés:</strong>
-        <span>{{ track.layout }}</span>
-      </p>
+      <p><strong>Elrendezés:</strong> {{ track.layout }}</p>
       <p><strong>Alapítás éve:</strong> {{ track.established }}</p>
       <p><strong>Ország:</strong> {{ track.country }}</p>
     </mat-card-content>

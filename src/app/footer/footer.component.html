@@ -1,11 +1,10 @@
 <mat-toolbar color="primary" class="footer-toolbar" role="contentinfo">
-    <div class="footer-content">
-      <p>&copy; 2025 Forma-1 Blog. Minden jog fenntartva.</p>
-      <nav class="footer-nav">
-        <a mat-button href="/home">Kezdőlap</a>
-        <a mat-button href="/blogs">Hírek</a>
-        <a mat-button href="#">Kapcsolat</a>
-      </nav>
-    </div>
-  </mat-toolbar>
-  
+  <div class="footer-content">
+    <p>&copy; 2025 Forma-1 Blog. Minden jog fenntartva.</p>
+    <nav class="footer-nav">
+      <a mat-button routerLink="/home" routerLinkActive="active-footer-link">Kezdőlap</a>
+      <a mat-button routerLink="/blogs" routerLinkActive="active-footer-link">Hírek</a>
+      <a mat-button routerLink="/contact" routerLinkActive="active-footer-link">Kapcsolat</a>
+    </nav>
+  </div>
+</mat-toolbar>
